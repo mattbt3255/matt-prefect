@@ -33,4 +33,10 @@ def get_repo_info(repo_name: str = "PrefectHQ/prefect"):
     print(f"Average open issues per user 💌 : {issues_per_user:.2f}")
 
 if __name__ == "__main__":
-    get_repo_info()
+    get_repo_info.serve(
+        name="my-second-deployment",
+        cron="* * * * *",
+        tags=["testing", "tutorial"],
+        description="Given a GitHub repository, logs repository statistics for that repo.",
+        version="tutorial/deployments",
+    )
